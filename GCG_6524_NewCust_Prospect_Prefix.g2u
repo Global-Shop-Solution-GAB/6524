@@ -1,0 +1,325 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form..Create(BaseForm)
+Gui.Form..Caption("Please select 1 prefix")
+Gui.Form..Size(417,56)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..AlwaysOnTop(False)
+Gui.Form..FontName("Tahoma")
+Gui.Form..FontSize(8.25)
+Gui.Form..ControlBox(True)
+Gui.Form..MaxButton(True)
+Gui.Form..MinButton(True)
+Gui.Form..MousePointer(0)
+Gui.Form..Moveable(True)
+Gui.Form..Sizeable(True)
+Gui.Form..ShowInTaskBar(True)
+Gui.Form..TitleBar(True)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form.ddlPrefixes.Create(DropDownList)
+Gui.Form.ddlPrefixes.Enabled(True)
+Gui.Form.ddlPrefixes.Visible(True)
+Gui.Form.ddlPrefixes.Zorder(0)
+Gui.Form.ddlPrefixes.Size(57,20)
+Gui.Form.ddlPrefixes.Position(40,3)
+Gui.Form.ddlPrefixes.FontName("Tahoma")
+Gui.Form.ddlPrefixes.FontSize(8.25)
+Gui.Form.ddlPrefixes.Event(SelectedIndexChanged,ddlPrefixes_SelectedIndexChanged)
+Gui.Form.lbl1.Create(Label,"Prefix",True,28,13,0,6,8,True,0,"Tahoma",8.25,,0,0)
+Gui.Form.lbl1.BorderStyle(0)
+Gui.Form.txtDescription.Create(TextBox,"",True,267,20,0,102,3,True,0,"Tahoma",8.25,,1)
+Gui.Form.cmdOK.Create(Button)
+Gui.Form.cmdOK.Enabled(True)
+Gui.Form.cmdOK.Visible(True)
+Gui.Form.cmdOK.Zorder(0)
+Gui.Form.cmdOK.Size(40,20)
+Gui.Form.cmdOK.Position(372,3)
+Gui.Form.cmdOK.Caption("OK")
+Gui.Form.cmdOK.FontName("Tahoma")
+Gui.Form.cmdOK.FontSize(8.25)
+Gui.Form.cmdOK.Event(Click,Form_UnLoad)
+Gui.F_Prefixes..Create(BaseForm)
+Gui.F_Prefixes..Caption("Add Prefixes")
+Gui.F_Prefixes..Size(387,385)
+Gui.F_Prefixes..MinX(0)
+Gui.F_Prefixes..MinY(0)
+Gui.F_Prefixes..Position(0,0)
+Gui.F_Prefixes..AlwaysOnTop(False)
+Gui.F_Prefixes..FontName("Tahoma")
+Gui.F_Prefixes..FontSize(8.25)
+Gui.F_Prefixes..ControlBox(True)
+Gui.F_Prefixes..MaxButton(True)
+Gui.F_Prefixes..MinButton(True)
+Gui.F_Prefixes..MousePointer(0)
+Gui.F_Prefixes..Moveable(True)
+Gui.F_Prefixes..Sizeable(True)
+Gui.F_Prefixes..ShowInTaskBar(True)
+Gui.F_Prefixes..TitleBar(True)
+Gui.F_Prefixes..Event(UnLoad,F_Prefixes_UnLoad)
+Gui.F_Prefixes.lbl1.Create(Label,"Prefix",True,28,13,0,5,4,True,0,"Tahoma",8.25,,0,0)
+Gui.F_Prefixes.lbl1.BorderStyle(0)
+Gui.F_Prefixes.txtPrefix.Create(TextBox,"",True,52,20,0,5,19,True,0,"Tahoma",8.25,,1)
+Gui.F_Prefixes.txtDesc.Create(TextBox,"",True,234,20,0,61,19,True,0,"Tahoma",8.25,,1)
+Gui.F_Prefixes.lbl2.Create(Label,"Description",True,53,13,0,61,4,True,0,"Tahoma",8.25,,0,0)
+Gui.F_Prefixes.lbl2.BorderStyle(0)
+Gui.F_Prefixes.cmdAdd.Create(Button)
+Gui.F_Prefixes.cmdAdd.Enabled(True)
+Gui.F_Prefixes.cmdAdd.Visible(True)
+Gui.F_Prefixes.cmdAdd.Zorder(0)
+Gui.F_Prefixes.cmdAdd.Size(39,21)
+Gui.F_Prefixes.cmdAdd.Position(299,19)
+Gui.F_Prefixes.cmdAdd.Caption("Add")
+Gui.F_Prefixes.cmdAdd.FontName("Tahoma")
+Gui.F_Prefixes.cmdAdd.FontSize(8.25)
+Gui.F_Prefixes.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.F_Prefixes.cmdSave.Create(Button)
+Gui.F_Prefixes.cmdSave.Enabled(True)
+Gui.F_Prefixes.cmdSave.Visible(True)
+Gui.F_Prefixes.cmdSave.Zorder(0)
+Gui.F_Prefixes.cmdSave.Size(39,21)
+Gui.F_Prefixes.cmdSave.Position(343,19)
+Gui.F_Prefixes.cmdSave.Caption("Save")
+Gui.F_Prefixes.cmdSave.FontName("Tahoma")
+Gui.F_Prefixes.cmdSave.FontSize(8.25)
+Gui.F_Prefixes.cmdSave.Event(Click,cmdSave_Click)
+Gui.F_Prefixes.cmdSave.BackColor(8454016)
+Gui.F_Prefixes.cmdSave.ForeColor(-2147483639)
+Gui.F_Prefixes.GSGC_Prefixes.Create(GsGridControl)
+Gui.F_Prefixes.GSGC_Prefixes.Enabled(True)
+Gui.F_Prefixes.GSGC_Prefixes.Visible(True)
+Gui.F_Prefixes.GSGC_Prefixes.Zorder(0)
+Gui.F_Prefixes.GSGC_Prefixes.Size(374,305)
+Gui.F_Prefixes.GSGC_Prefixes.Position(7,44)
+Gui.F_Prefixes.GSGC_Prefixes.Event(RowCellClick,GSGC_Prefixes_RowCellClick)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sPrefix.Declare
+Program.Sub.Preflight.End
+'Bryan Pham
+'Quote: 12953
+'Customer: MUM Industries
+'Scope: add prefix when creating new customer/ prospect
+
+Program.Sub.Main.Start
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+v.Local.sCust.Declare
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.sProspect.Declare
+f.ODBC.Connection!con.OpenCompanyConnection
+
+f.Intrinsic.Control.If(v.Caller.Switches,=,"M")
+	f.Intrinsic.Control.CallSub(loadDTPrefixes)
+	gui.F_Prefixes..Show
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Caller.Hook,=,"14387")
+	f.Intrinsic.Control.If(v.Caller.Switches,=,"N")
+		f.Intrinsic.Control.CallSub(loadPrefixes)
+		gui.Form..Visible(true)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.Control.End
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Caller.Hook,=,"29855")
+	f.Intrinsic.Control.If(v.Caller.Switches,=,"N")
+		f.Intrinsic.Control.CallSub(loadPrefixes)
+		gui.Form..Visible(true)
+	f.Intrinsic.Control.Else
+		f.Intrinsic.Control.End
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Form_UnLoad.Start
+v.Local.sCust.Declare
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Global.sPrefix.Set(v.Screen.Form!ddlPrefixes.Text)
+gui.Form..Visible(False)
+v.Local.sSQL.Set("Select RTRIM(PO_GL_ACCT) from CUSTOM2_OPTIONS where sys = 'ARM' and sub_sys = 'ISC'")
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sCust)
+F.Intrinsic.String.Right(v.Local.sCust,5,v.Local.sCust)
+f.Intrinsic.String.Build("{0}{1}",v.Global.sPrefix,v.Local.sCust,v.Local.sCust)
+
+f.Intrinsic.Control.If(v.Global.sPrefix,=,"")
+	f.Intrinsic.UI.Msgbox("Please select a prefix to proceed!")
+	v.Passed.777777.Set(1)
+f.Intrinsic.Control.Else
+	v.Passed.000002.Set(v.Local.sCust)
+	f.ODBC.Connection!con.Close
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndIf
+
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.loadPrefixes.Start
+f.Intrinsic.Control.If(v.DataTable.dtPrefixes.Exists,=,true)
+	f.Data.Datatable.Close("dtPrefixes")
+f.Intrinsic.Control.EndIf
+f.Data.Datatable.CreateFromSQL("dtPrefixes","con","Select RTRIM(PREFIX) as PREFIX, RTRIM(DESCRIPTION) as DESCRIPTION from GCG_6524_PREFIXES",true)
+gui.Form.ddlPrefixes.AddItems("Datatable","dtPrefixes","PREFIX","PREFIX")
+Program.Sub.loadPrefixes.End
+
+Program.Sub.ddlPrefixes_SelectedIndexChanged.Start
+v.Local.sSQL.Declare
+v.Local.sDesc.Declare
+f.Intrinsic.String.Build("Select RTRIM(DESCRIPTION) from GCG_6524_PREFIXES where PREFIX = '{0}'",v.Screen.Form!ddlPrefixes.Text,v.Local.sSQL)
+f.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL,v.Local.sDesc)
+gui.Form.txtDescription.Text(v.Local.sDesc)
+Program.Sub.ddlPrefixes_SelectedIndexChanged.End
+
+Program.Sub.loadDTPrefixes.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sSQL.Declare
+
+f.Intrinsic.Control.If(v.DataTable.dtPrefixes.Exists,=,true)
+	f.Data.Datatable.Close("dtPrefixes")
+f.Intrinsic.Control.EndIf
+
+f.Data.Datatable.CreateFromSQL("dtPrefixes","con","Select RTRIM(PREFIX) as PREFIX, RTRIM(DESCRIPTION) as DESCRIPTION from GCG_6524_PREFIXES order by PREFIX",true)
+f.Data.DataTable.AddColumn("dtPrefixes","Delete","string","Delete")
+
+f.Intrinsic.Control.CallSub(loadGVPrefixes)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.loadDTPrefixes.End
+Program.Sub.loadGVPrefixes.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.F_Prefixes.GSGC_Prefixes.AddGridviewFromDatatable("gvPrefixes","dtPrefixes")
+gui.F_Prefixes.GSGC_Prefixes.SuspendLayout()
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","Caption","Prefix")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","AllowEdit","False")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","MinWidth","30")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","HeaderFontBold","True")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","HeaderHAlignment","Center")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","PREFIX","CellHAlignment","Center")
+
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","Caption","Description")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","AllowEdit","False")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","MinWidth","100")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","HeaderFontBold","True")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","HeaderHAlignment","Center")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","DESCRIPTION","CellHAlignment","Center")
+
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","MinWidth","30")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","ReadOnly",True)
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","AllowEdit",False)
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","HeaderFontBold","True")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","CellHAlignment","Center")
+gui.F_Prefixes.GSGC_Prefixes.ColumnEdit("gvPrefixes","Delete","EditorButton","Delete")
+gui.F_Prefixes.GSGC_Prefixes.SetColumnProperty("gvPrefixes","Delete","HeaderHAlignment","Center")
+gui.F_Prefixes.GSGC_Prefixes.ResumeLayout()
+gui.F_Prefixes.GSGC_Prefixes.MainView("gvPrefixes")
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.loadGVPrefixes.End
+Program.Sub.cmdAdd_Click.Start
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+v.Local.sPrefix.Declare
+v.Local.sDesc.Declare
+
+v.Local.sFilter.Declare
+
+v.Local.sPrefix.Set(v.Screen.F_Prefixes!txtPrefix.Text)
+v.Local.sDesc.Set(v.Screen.F_Prefixes!txtDesc.Text)
+	
+	
+	f.Intrinsic.String.Build("PREFIX = '{0}' and DESCRIPTION = '{1}'",v.Local.sPrefix,v.Local.sDesc,v.Local.sFilter)
+	f.Data.DataView.Create("dtPrefixes","dvPrefixes",22,v.Local.sFilter,"")
+	f.Intrinsic.Control.If(v.DataView.dtPrefixes!dvPrefixes.RowCount,>,0)
+		f.Intrinsic.UI.Msgbox("Selection already exists.")
+	f.Intrinsic.Control.Else
+		f.Data.DataTable.AddRow("dtPrefixes","PREFIX",v.Local.sPrefix,"DESCRIPTION",v.Local.sDesc)
+	f.Intrinsic.Control.EndIf
+	f.Data.DataView.Close("dtPrefixes","dvPrefixes")
+	
+	gui.F_Prefixes.txtPrefix.Text("")
+	gui.F_Prefixes.txtDesc.Text("")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.cmdSave_Click.Start
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.UI.InvokeWaitDialog("Saving...")
+f.ODBC.Connection!con.Execute("Delete from GCG_6524_PREFIXES")
+f.Data.DataTable.SaveToDB("dtPrefixes","con","GCG_6524_PREFIXES","",128,"PREFIX@!@PREFIX*!*DESCRIPTION@!@DESCRIPTION")
+f.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.GSGC_Prefixes_RowCellClick.Start
+f.Intrinsic.Control.Try
+	v.Local..BulkDeclareString(sError)
+	
+	f.Intrinsic.Control.If(v.Args.Column,=,"Delete")
+		f.Intrinsic.UI.InvokeWaitDialog("Deleting...")
+		f.Data.DataTable.DeleteRow("dtPrefixes",v.Args.RowIndex)
+		f.Data.DataTable.AcceptChanges("dtPrefixes")
+		f.Intrinsic.UI.CloseWaitDialog		
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub("Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_Prefixes_RowCellClick.End
+
+Program.Sub.F_Prefixes_UnLoad.Start
+v.Local.sRet.Declare
+'Remind customer if they havent save selections
+f.Intrinsic.UI.Msgbox("Have you saved all selections? All selections will be lost if you have not saved.","Attention!",4,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,=,"6")
+	f.Intrinsic.Control.CallSub("Unload")
+f.Intrinsic.Control.EndIf
+Program.Sub.F_Prefixes_UnLoad.End
+
+Program.Sub.Unload.Start
+f.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(v.ODBC.con.State,=,1)
+		F.ODBC.Connection!con.close
+	f.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}GAB Version: {5}}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Unload.End
+
+Program.Sub.Comments.Start
+${$5$}$20.1.8207.17809$}$1
+${$6$}$bpham$}$20220627090731535$}$Di0riF4Q5RIv6jxva5zSWBaTvp+T0Dt6mxjI/5kxuRnRY3AsZ1eYMC2MTOtlJ/5Z5jjdYitVRIM=
+Program.Sub.Comments.End
